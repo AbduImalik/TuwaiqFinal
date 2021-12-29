@@ -25,7 +25,7 @@ class NewPostViewController: UIViewController {
     @IBAction func postButtonClicked(_ sender: Any) {
         if let loggedUser = UserManager.loggedInUser{
             self.loaderView.startAnimating()
-            PostAPI.addNewPosts(text: postText.text!, userId: loggedUser.id) {
+            PostAPI.addNewPosts(text: postText.text!, userId: loggedUser.id , image: postUrlLabel.text!) {
                 self.loaderView.stopAnimating()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addNewPost"), object: nil, userInfo: nil)
                 self.dismiss(animated: true, completion: nil)

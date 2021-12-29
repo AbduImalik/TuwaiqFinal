@@ -39,7 +39,7 @@ class PostAPI : API {
         }
     }
     
-    static func addNewPosts(text:String, userId:String, completionHander : @escaping () -> ()){
+    static func addNewPosts(text:String, userId:String ,image:String, completionHander : @escaping () -> ()){
         
 
         let url = "\(baseUrl)/post/create"
@@ -47,8 +47,8 @@ class PostAPI : API {
         
 
             "owner": userId,
-            "text":text
-        
+            "text":text,
+            "image": image
         ]
         
         AF.request(url,method: .post,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
@@ -71,7 +71,6 @@ class PostAPI : API {
         AF.request(url, headers: headers).responseJSON { respose in
             let jsonData = JSON(respose.value!)
             let data = jsonData["data"]
-            print(data)
             let decoder = JSONDecoder()
             do{
 
@@ -125,7 +124,27 @@ class PostAPI : API {
         }
     }
 
-    
+    static func deleteComment(postId:String,completionHander : @escaping () -> ()){
+        
+
+        let url = "\(baseUrl)/comment/\(postId)"
+        let param = [
+        
+            "post": postId,
+        
+        ]
+        
+        AF.request(url,method: .delete,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
+            switch respose.result {
+            case .success:
+                completionHander()
+            case .failure(let error):
+                print(error)
+            }
+
+        }
+        
+    }
 
     
 }

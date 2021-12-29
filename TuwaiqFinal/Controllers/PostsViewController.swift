@@ -17,6 +17,9 @@ class PostsViewController: UIViewController {
     @IBOutlet weak var postsTableView: UITableView!
     
     
+
+    
+    
     @IBOutlet weak var postLabel: UILabel!
     
     @IBOutlet weak var tagButtonBack: UIButton!

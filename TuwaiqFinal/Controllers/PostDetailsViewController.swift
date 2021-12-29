@@ -10,9 +10,15 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 class PostDetailsViewController: UIViewController {
+    
     var post : Post!
     var comments : [Comment] = []
     var likes = 0
+    var index = 0
+    
+    
+    
+    
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     @IBOutlet weak var commentTableView: UITableView!
@@ -29,10 +35,12 @@ class PostDetailsViewController: UIViewController {
     
     @IBOutlet weak var likeImage: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        UserManager.postUser = [post]
         
         commentTableView.dataSource = self
         commentTableView.delegate = self
@@ -47,11 +55,13 @@ class PostDetailsViewController: UIViewController {
         
         postImageView.setImageFromUrlToImage(stringUrl: post.image)
         
+        postImageView.layer.cornerRadius = 15
         
+        commentTextField.layer.cornerRadius = 15
         
         
         // Get comment from api
-        loaderView.startAnimating()
+        //loaderView.startAnimating()
         getPostComment()
  
         
@@ -70,13 +80,62 @@ class PostDetailsViewController: UIViewController {
 //    }
 //    
     
+
+    @IBAction func deleteComment(_ sender: Any) {
+        
+        
+        
+        var superview = (sender as AnyObject).superview
+        while let view = superview, !(view is UITableViewCell) {
+            superview = view?.superview
+        }
+        guard let cell = superview as? UITableViewCell else {
+            print("button is not contained in a table view cell")
+            return
+        }
+        guard let indexPath = commentTableView.indexPath(for: cell) else {
+            print("failed to get index path for cell containing button")
+            return
+        }
+
+
+        
+        let alert = UIAlertController(title: "Warning Title", message: "Do you want to delete the comment", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            DispatchQueue.main.async {
+                
+                PostAPI.deleteComment(postId: self.comments[indexPath.row].id) {
+                    
+                    self.commentTableView.reloadData()
+                    self.getPostComment()
+                    
+                }
+                
+            }
+        }
+
+        //Add the actions to the alert controller
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+
+        //Present the alert controller
+        present(alert, animated: true, completion: nil)
+
+        
+        
+    }
+    
     
     
     func getPostComment(){
         PostAPI.getPostComment(id: post.id) { postComment in
             self.comments = postComment
             self.commentTableView.reloadData()
-            self.loaderView.stopAnimating()
+            //self.loaderView.stopAnimating()
+    
         }
     }
     
@@ -84,9 +143,9 @@ class PostDetailsViewController: UIViewController {
         let comment = commentTextField.text!
 
         if let user = UserManager.loggedInUser {
-            print(user.id)
             PostAPI.addNewCommentToPost(postId: post.id, userId: user.id, message: comment) {
                 self.getPostComment()
+                self.commentTextField.text = ""
             }
         }
 
@@ -118,12 +177,11 @@ extension PostDetailsViewController : UITableViewDelegate , UITableViewDataSourc
 
         }
         cell.userImageView.makeImageViewRadius()
-
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
+        
 }

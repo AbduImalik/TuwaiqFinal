@@ -9,4 +9,7 @@ import Foundation
 
 class UserManager {
     static var loggedInUser : User?
+    static var postUser : [Post]?
+
 }
+
