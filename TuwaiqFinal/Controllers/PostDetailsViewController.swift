@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
-class PostDetailsViewController: UIViewController {
+class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     var post : Post!
     var comments : [Comment] = []
@@ -19,7 +19,6 @@ class PostDetailsViewController: UIViewController {
     
     
     
-    @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -30,15 +29,26 @@ class PostDetailsViewController: UIViewController {
 
     @IBOutlet weak var newCommentSV: UIStackView!
     
+    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var commentTextField: UITextField!
     
     @IBOutlet weak var likeImage: UIButton!
     
+    @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(post.id)
+        
+        commentTextField.setPadding(left: 15, right: 15)
+        editButton.isHidden = true
+        
+        if post.owner.id == UserManager.loggedInUser?.id {
+            editButton.isHidden = false
+        }
         
         UserManager.postUser = [post]
         
@@ -69,6 +79,13 @@ class PostDetailsViewController: UIViewController {
             newCommentSV.isHidden = true
         }
         
+        
+        
+        //
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(editPost), name: NSNotification.Name(rawValue: "editPost"), object: nil)
+        
+        
 
     }
 //    
@@ -79,7 +96,12 @@ class PostDetailsViewController: UIViewController {
 //        
 //    }
 //    
-    
+    @objc func editPost(notification:Notification){
+        let text = notification.userInfo?["text"] as! String
+        let urlImage = notification.userInfo?["imageUrl"] as! String
+        postTitleLabel.text = text
+        postImageView.setImageFromUrlToImage(stringUrl: urlImage)
+    }
 
     @IBAction func deleteComment(_ sender: Any) {
         
@@ -100,13 +122,12 @@ class PostDetailsViewController: UIViewController {
 
 
         
-        let alert = UIAlertController(title: "Warning Title", message: "Do you want to delete the comment", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning", message: "Do you want to delete the comment", preferredStyle: .alert)
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
-                
                 PostAPI.deleteComment(postId: self.comments[indexPath.row].id) {
                     
                     self.commentTableView.reloadData()
@@ -125,6 +146,46 @@ class PostDetailsViewController: UIViewController {
         present(alert, animated: true, completion: nil)
 
         
+        
+    }
+    
+    
+    @IBAction func editButton(_ sender: Any) {
+        
+        let alert = MyAlertViewController(
+            title: "Post",message: nil,preferredStyle: .actionSheet)
+
+        
+        alert.addAction(title: "edit Post", style: .default) { edit in
+            self.loaderView.startAnimating()
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPostViewController") as? NewPostViewController{
+                vc.postId = self.post.id
+                vc.postOwner = self.post.owner.id
+                vc.isCreation = false
+
+                self.present(vc, animated: true, completion: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "fillEditPost"), object: nil, userInfo: ["postText":self.postTitleLabel.text!,"postUrl":self.post.image])
+
+            }
+            self.loaderView.stopAnimating()
+        
+        }
+        
+        
+        
+        alert.addAction(title: "Delete Post", style: .destructive) { delete in
+            PostAPI.deletePost(postId: self.post.id) {
+                self.dismiss(animated: true, completion: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletePost"), object: nil, userInfo: nil)
+
+            }
+            
+        }
+        
+        alert.addAction(title: "Cancel", style: .cancel)
+
+        present(alert, animated: true, completion: nil)
+
         
     }
     

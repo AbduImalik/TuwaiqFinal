@@ -19,6 +19,8 @@
 		9F88A21D277379FB00028AD5 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F88A21C277379FB00028AD5 /* NewPostViewController.swift */; };
 		9FA958D9276CFBCB000C6CC1 /* CubeShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA958D8276CFBCB000C6CC1 /* CubeShadowView.swift */; };
 		9FBFCA702768E9CC005AD3A2 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFCA6F2768E9CB005AD3A2 /* PostDetailsViewController.swift */; };
+		9FC7BF8A277DCA890051FFCE /* setPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7BF89277DCA890051FFCE /* setPadding.swift */; };
+		9FC7BF8C277DD2EF0051FFCE /* MyAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7BF8B277DD2EF0051FFCE /* MyAlertViewController.swift */; };
 		9FC8EB11276F697200083A20 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8EB10276F697200083A20 /* PostAPI.swift */; };
 		9FC8EB13276F72F200083A20 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8EB12276F72F200083A20 /* UserAPI.swift */; };
 		9FC8EB15276F747A00083A20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8EB14276F747A00083A20 /* API.swift */; };
@@ -53,6 +55,8 @@
 		9F88A21C277379FB00028AD5 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		9FA958D8276CFBCB000C6CC1 /* CubeShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeShadowView.swift; sourceTree = "<group>"; };
 		9FBFCA6F2768E9CB005AD3A2 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		9FC7BF89277DCA890051FFCE /* setPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setPadding.swift; sourceTree = "<group>"; };
+		9FC7BF8B277DD2EF0051FFCE /* MyAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertViewController.swift; sourceTree = "<group>"; };
 		9FC8EB10276F697200083A20 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		9FC8EB12276F72F200083A20 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		9FC8EB14276F747A00083A20 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			children = (
 				9F394582276A465D0091D02B /* UIiamge + StringToImage.swift */,
 				9FE18CD327720E6D004DAD05 /* UserManager.swift */,
+				9FC7BF89277DCA890051FFCE /* setPadding.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				9FA958D8276CFBCB000C6CC1 /* CubeShadowView.swift */,
 				9FE18CD7277219D3004DAD05 /* TagCell.swift */,
 				9F88A21A27735F5300028AD5 /* PostTagCell.swift */,
+				9FC7BF8B277DD2EF0051FFCE /* MyAlertViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				9FC8EB13276F72F200083A20 /* UserAPI.swift in Sources */,
 				9FD0D656276B85E9006F9097 /* UserProfileViewController.swift in Sources */,
 				9F4D11E3276A5152002D78E9 /* ShadowView.swift in Sources */,
+				9FC7BF8A277DCA890051FFCE /* setPadding.swift in Sources */,
 				9F88A21D277379FB00028AD5 /* NewPostViewController.swift in Sources */,
 				9FCFD7BF276794B300AAA74D /* AppDelegate.swift in Sources */,
 				9FBFCA702768E9CC005AD3A2 /* PostDetailsViewController.swift in Sources */,
@@ -334,6 +341,7 @@
 				9FC8EB11276F697200083A20 /* PostAPI.swift in Sources */,
 				9FCFD7D8276799A000AAA74D /* Post.swift in Sources */,
 				9FCFD7DA27679F4B00AAA74D /* PostCell.swift in Sources */,
+				9FC7BF8C277DD2EF0051FFCE /* MyAlertViewController.swift in Sources */,
 				9FC8EB15276F747A00083A20 /* API.swift in Sources */,
 				9FE18CD427720E6D004DAD05 /* UserManager.swift in Sources */,
 				9FA958D9276CFBCB000C6CC1 /* CubeShadowView.swift in Sources */,

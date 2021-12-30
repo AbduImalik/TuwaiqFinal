@@ -11,5 +11,6 @@ pod 'SwiftyJSON', '~> 4.0'
 pod 'NVActivityIndicatorView'
 pod 'Material', '~> 3.1.0'
 pod 'IQKeyboardManagerSwift'
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+pod 'CleanyModal'
+
 end

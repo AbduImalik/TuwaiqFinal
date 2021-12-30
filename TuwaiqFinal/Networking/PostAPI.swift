@@ -146,5 +146,52 @@ class PostAPI : API {
         
     }
 
+    static func deletePost(postId:String,completionHander : @escaping () -> ()){
+        
+
+        let url = "\(baseUrl)/post/\(postId)"
+        let param = [
+        
+            "id": postId,
+        
+        ]
+        
+        AF.request(url,method: .delete,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
+            switch respose.result {
+            case .success:
+                completionHander()
+            case .failure(let error):
+                print(error)
+            }
+
+        }
+        
+    }
+    
+    static func editPost(postId:String,text:String, userId:String ,image:String, completionHander : @escaping () -> ()){
+        
+
+        let url = "\(baseUrl)/post/\(postId)"
+        let param = [
+        
+
+            "owner": userId,
+            "text":text,
+            "image": image
+        ]
+        
+        AF.request(url,method: .put,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
+            switch respose.result {
+            case .success:
+                completionHander()
+            case .failure(let error):
+                print(error)
+            }
+
+        }
+        
+    }
+    
+    
     
 }

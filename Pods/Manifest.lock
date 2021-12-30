@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - CleanyModal (1.0.3)
   - IQKeyboardManagerSwift (6.5.9)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
@@ -11,44 +12,35 @@ PODS:
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - Spring (1.0.6)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - CleanyModal
   - IQKeyboardManagerSwift
   - Material (~> 3.1.0)
   - NVActivityIndicatorView
-  - Spring (from `https://github.com/MengTo/Spring.git`)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CleanyModal
     - IQKeyboardManagerSwift
     - Material
     - Motion
     - NVActivityIndicatorView
     - SwiftyJSON
 
-EXTERNAL SOURCES:
-  Spring:
-    :git: https://github.com/MengTo/Spring.git
-
-CHECKOUT OPTIONS:
-  Spring:
-    :commit: 50d92a5b9e08848387ae95bf44c6ad20834f7083
-    :git: https://github.com/MengTo/Spring.git
-
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  CleanyModal: 5e5fece5b1de97b47ea091f6390ec2b16bfa2f20
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 670bb6805c25800eaee5cfc34942d4a74f089742
+PODFILE CHECKSUM: 3c864df9e959281b46538dc8467eb7d2fa35bd4d
 
 COCOAPODS: 1.11.2

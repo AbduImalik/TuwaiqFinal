@@ -40,6 +40,16 @@ class PostsViewController: UIViewController {
         //
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPost), name: NSNotification.Name(rawValue: "addNewPost"), object: nil)
         
+        //
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deletePost), name: NSNotification.Name(rawValue: "DeletePost"), object: nil)
+        
+        //
+        NotificationCenter.default.addObserver(self, selector: #selector(editPost), name: NSNotification.Name(rawValue: "editPost"), object: nil)
+        
+        //
+        
+        
         // getAllPosts
         getPost()
 
@@ -58,7 +68,19 @@ class PostsViewController: UIViewController {
         
     }
     
+    @objc func editPost(notification:Notification){
+        self.posts = []
+        self.page = 0
+        getPost()
+    }
+    
     @objc func addNewPost(notification:Notification){
+        self.posts = []
+        self.page = 0
+        getPost()
+    }
+    
+    @objc func deletePost(notification:Notification){
         self.posts = []
         self.page = 0
         getPost()
