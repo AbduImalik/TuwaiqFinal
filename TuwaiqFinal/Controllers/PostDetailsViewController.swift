@@ -40,9 +40,7 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(post.id)
-        
+        postTitleLabel.setPaddingLabel(margin: 4848894)
         commentTextField.setPadding(left: 15, right: 15)
         editButton.isHidden = true
         

@@ -28,8 +28,9 @@ class UserProfileViewController: UIViewController {
         setupUI()
         
         // requeset
-        
+        loaderView.startAnimating()
         UserAPI.getUserAPI(id: user.id) { userResponse in
+            self.loaderView.stopAnimating()
             self.user = userResponse
             self.setupUI()
         }
