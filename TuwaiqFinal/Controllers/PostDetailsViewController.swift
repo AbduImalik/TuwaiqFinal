@@ -221,6 +221,11 @@ extension PostDetailsViewController : UITableViewDelegate , UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentPost = comments[indexPath.row]
         let cell = commentTableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+        
+        if currentPost.owner.id == UserManager.loggedInUser?.id {
+            cell.hiddenButtonDelete.isHidden = false
+        }
+        
         cell.commentMessageLabel.text = comments[indexPath.row].message
         cell.userNameLabel.text = comments[indexPath.row].owner.firstName + " " + comments[indexPath.row].owner.lastName
         
