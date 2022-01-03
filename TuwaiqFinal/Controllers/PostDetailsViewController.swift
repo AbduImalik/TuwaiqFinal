@@ -40,14 +40,12 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postTitleLabel.setPaddingLabel(margin: 4848894)
         commentTextField.setPadding(left: 15, right: 15)
         editButton.isHidden = true
         
         if post.owner.id == UserManager.loggedInUser?.id {
             editButton.isHidden = false
         }
-        
         UserManager.postUser = [post]
         
         commentTableView.dataSource = self
@@ -71,7 +69,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
         // Get comment from api
         //loaderView.startAnimating()
         getPostComment()
- 
         
         if UserManager.loggedInUser == nil{
             newCommentSV.isHidden = true
@@ -118,7 +115,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-
         
         let alert = UIAlertController(title: "Warning", message: "Do you want to delete the comment", preferredStyle: .alert)
 
@@ -127,7 +123,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             DispatchQueue.main.async {
                 PostAPI.deleteComment(postId: self.comments[indexPath.row].id) {
-                    
                     self.commentTableView.reloadData()
                     self.getPostComment()
                     
@@ -194,7 +189,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
             self.comments = postComment
             self.commentTableView.reloadData()
             //self.loaderView.stopAnimating()
-    
         }
     }
     
@@ -242,5 +236,4 @@ extension PostDetailsViewController : UITableViewDelegate , UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-        
 }
