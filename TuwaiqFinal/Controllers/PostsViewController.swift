@@ -64,6 +64,17 @@ class PostsViewController: UIViewController {
         
         if (UserManager.loggedInUser == nil) {
             postAddButton.isHidden = true
+            
+            // disable tab bar profile edit
+            let tabBarControllerItems = self.tabBarController?.tabBar.items
+
+            if let arrayOfTabBarItems = tabBarControllerItems! as AnyObject as? NSArray{
+
+                let tabBarItemONE = arrayOfTabBarItems[2] as! UITabBarItem
+                tabBarItemONE.isEnabled = false
+
+
+            }
         }
         
     }

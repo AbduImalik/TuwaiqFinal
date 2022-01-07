@@ -26,7 +26,7 @@
 import UIKit
 import Motion
 
-public protocol Themeable: class {
+public protocol Themeable: AnyObject {
   /**
    Applies given theme.
    - Parameter theme: A Theme.

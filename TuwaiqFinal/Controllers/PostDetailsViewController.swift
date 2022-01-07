@@ -145,11 +145,13 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editButton(_ sender: Any) {
         
-        let alert = MyAlertViewController(
-            title: "Post",message: nil,preferredStyle: .actionSheet)
-
+        ActionPostContextMenu()
         
-        alert.addAction(title: "edit Post", style: .default) { edit in
+    }
+    
+    func ActionPostContextMenu(){
+        let usersItem = UIAction(title: "EditPost", image: UIImage(systemName: "pencil")) { (action) in
+
             self.loaderView.startAnimating()
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPostViewController") as? NewPostViewController{
                 vc.postId = self.post.id
@@ -161,26 +163,26 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
 
             }
             self.loaderView.stopAnimating()
-        
-        }
-        
-        
-        
-        alert.addAction(title: "Delete Post", style: .destructive) { delete in
-            PostAPI.deletePost(postId: self.post.id) {
-                self.dismiss(animated: true, completion: nil)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletePost"), object: nil, userInfo: nil)
 
-            }
-            
-        }
-        
-        alert.addAction(title: "Cancel", style: .cancel)
+         }
 
-        present(alert, animated: true, completion: nil)
+        let addUserItem = UIAction(title: "DeletePost", image: UIImage(systemName: "trash"),attributes: .destructive) { (action) in
 
-        
+             PostAPI.deletePost(postId: self.post.id) {
+                 self.dismiss(animated: true, completion: nil)
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletePost"), object: nil, userInfo: nil)
+
+             }
+
+         }
+
+         let menu = UIMenu(title: "Action", options: .displayInline, children: [usersItem , addUserItem])
+
+        editButton.menu = menu
+        editButton.showsMenuAsPrimaryAction = true
+
     }
+
     
     
     
@@ -224,6 +226,8 @@ extension PostDetailsViewController : UITableViewDelegate , UITableViewDataSourc
         
         if currentPost.owner.id == UserManager.loggedInUser?.id {
             cell.hiddenButtonDelete.isHidden = false
+        }else{
+            cell.hiddenButtonDelete.isHidden = true
         }
         
         cell.commentMessageLabel.text = comments[indexPath.row].message

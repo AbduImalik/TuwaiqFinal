@@ -17,11 +17,7 @@ class SignInViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.firstNameTextField.text = "Abdulmalik"
-        self.lastNameTextField.text = "Mohammed"
-        
+        super.viewDidLoad()        
         // Do any additional setup after loading the view.
     }
     @IBAction func signInButtonClicked(_ sender: Any) {
@@ -32,6 +28,8 @@ class SignInViewController: UIViewController {
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
+                self.firstNameTextField.text = ""
+                self.lastNameTextField.text = ""
             }else{
                 if loggedInUser != nil {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")

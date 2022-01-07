@@ -32,7 +32,6 @@ class MyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         SetUpUI()
         // Do any additional setup after loading the view.
     }
@@ -50,14 +49,6 @@ class MyProfileViewController: UIViewController {
             phoneTextField.text = user.phone
             imageUrlTextField.text = user.picture
             
-        }else{
-            
-            firstNameTextField.isUserInteractionEnabled = false
-            LastNameTextField.isUserInteractionEnabled = false
-            EmailTextField.isUserInteractionEnabled = false
-            phoneTextField.isUserInteractionEnabled = false
-            imageUrlTextField.isUserInteractionEnabled = false
-            submitButton.isEnabled = false
         }
     }
     

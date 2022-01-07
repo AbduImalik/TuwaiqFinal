@@ -25,7 +25,7 @@
 
 import UIKit
 
-public protocol MotionPreprocessor: class {
+public protocol MotionPreprocessor: AnyObject {
   /// A reference to Motion.
   var motion: MotionTransition! { get set }
   
