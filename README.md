@@ -45,9 +45,6 @@ Social networking web app using dummyapi for socializing your goals and strategi
 
 ## 📸 ScreenShots
 
-<img src="ss/1.png"/>
-<img src="ss/2.png"/>
-
 | | |
 |------|-------|
 |||
