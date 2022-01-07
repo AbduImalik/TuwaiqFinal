@@ -1,7 +1,7 @@
 
 ## Description
 
-Social networking web app using dummuyapi for socializing your goals and strategies with people.This application is a pattern of social components comprising posts, likes, comments, views
+Social networking web app using dummyapi for socializing your goals and strategies with people.This application is a pattern of social components comprising posts, likes, comments, views
 
 ## User Stories
 
