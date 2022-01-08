@@ -71,6 +71,15 @@ class MyProfileViewController: UIViewController {
             }
             
         }
+        
+        let alert = UIAlertController(title: "Update", message: "Update Success", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { alert in
+            self.tabBarController!.selectedIndex = 0
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
     }
     
 }

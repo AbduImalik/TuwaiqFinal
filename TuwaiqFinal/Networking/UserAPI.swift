@@ -28,7 +28,7 @@ class UserAPI : API{
         
     }
     
-    static func registerUser(firstName:String,lastName:String,email:String,phone:String, completionHander :  @escaping (User?, String?) ->()){
+    static func registerUser(firstName:String,lastName:String,email:String,image:String,phone:String, completionHander :  @escaping (User?, String?) ->()){
         
 
         let url = "\(baseUrl)/user/create"
@@ -37,7 +37,8 @@ class UserAPI : API{
             "firstName": firstName,
             "lastName": lastName,
             "email": email,
-            "phone": phone
+            "picture": image,
+            "phone" : phone
         
         ]
         AF.request(url,method: .post,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in

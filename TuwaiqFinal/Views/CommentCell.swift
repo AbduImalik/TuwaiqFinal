@@ -17,13 +17,6 @@ class CommentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         hiddenButtonDelete.isHidden = true
-        if UserManager.loggedInUser != nil {
-            for user in UserManager.postUser! {
-                if user.owner.id == UserManager.loggedInUser?.id {
-                    hiddenButtonDelete.isHidden = false
-                }
-            }
-        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

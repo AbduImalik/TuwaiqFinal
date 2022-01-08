@@ -150,7 +150,9 @@ extension PostsViewController : UITableViewDelegate , UITableViewDataSource {
         let post = posts[indexPath.row]
         cell.postTextLabel.text = post.text
         
-        cell.tags = post.tags ?? []
+        if let tag = post.tags {
+            cell.tags = tag
+        }
         
         // Post Image
         let stringImage = post.image

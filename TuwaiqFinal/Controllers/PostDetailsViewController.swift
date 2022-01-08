@@ -13,7 +13,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     var post : Post!
     var comments : [Comment] = []
-    var likes = 0
     var index = 0
     
     
@@ -33,7 +32,6 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var commentTextField: UITextField!
     
-    @IBOutlet weak var likeImage: UIButton!
     
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
@@ -83,14 +81,8 @@ class PostDetailsViewController: UIViewController, UITextFieldDelegate {
         
 
     }
-//    
-//    @IBAction func LikeAdd(_ sender: Any) {
-//        
-//        likes = post.likes + 1
-//        self.postLikeLabel.text = String(likes)
-//        
-//    }
-//    
+   
+  
     @objc func editPost(notification:Notification){
         let text = notification.userInfo?["text"] as! String
         let urlImage = notification.userInfo?["imageUrl"] as! String
@@ -224,7 +216,7 @@ extension PostDetailsViewController : UITableViewDelegate , UITableViewDataSourc
         let currentPost = comments[indexPath.row]
         let cell = commentTableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
         
-        if currentPost.owner.id == UserManager.loggedInUser?.id {
+        if currentPost.owner.id == UserManager.loggedInUser?.id || post.owner.id == UserManager.loggedInUser?.id{
             cell.hiddenButtonDelete.isHidden = false
         }else{
             cell.hiddenButtonDelete.isHidden = true

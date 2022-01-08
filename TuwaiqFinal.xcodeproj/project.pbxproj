@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F0826232770BE8300D29282 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0826222770BE8300D29282 /* SignInViewController.swift */; };
-		9F37413D2780C48100694FF3 /* setPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F37413C2780C48100694FF3 /* setPaddingLabel.swift */; };
+		9F305B1B278862ED00FE50E8 /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F305B1A278862ED00FE50E8 /* RequestParameters.swift */; };
 		9F394583276A465D0091D02B /* UIiamge + StringToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F394582276A465D0091D02B /* UIiamge + StringToImage.swift */; };
 		9F39ECAC2767ACB0004065C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F39ECAB2767ACB0004065C6 /* User.swift */; };
 		9F4B77062774DBD6005A4D51 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B77052774DBD6005A4D51 /* MyProfileViewController.swift */; };
@@ -45,7 +45,7 @@
 		32ED999DC267A0BC8345A496 /* Pods-TuwaiqFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuwaiqFinal.debug.xcconfig"; path = "Target Support Files/Pods-TuwaiqFinal/Pods-TuwaiqFinal.debug.xcconfig"; sourceTree = "<group>"; };
 		5FA6D429A07FA3EF68B097D6 /* Pods_TuwaiqFinal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuwaiqFinal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0826222770BE8300D29282 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		9F37413C2780C48100694FF3 /* setPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setPaddingLabel.swift; sourceTree = "<group>"; };
+		9F305B1A278862ED00FE50E8 /* RequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameters.swift; sourceTree = "<group>"; };
 		9F394582276A465D0091D02B /* UIiamge + StringToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIiamge + StringToImage.swift"; sourceTree = "<group>"; };
 		9F39ECAB2767ACB0004065C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9F4B77052774DBD6005A4D51 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 				9F394582276A465D0091D02B /* UIiamge + StringToImage.swift */,
 				9FE18CD327720E6D004DAD05 /* UserManager.swift */,
 				9FC7BF89277DCA890051FFCE /* setPadding.swift */,
-				9F37413C2780C48100694FF3 /* setPaddingLabel.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -193,6 +192,7 @@
 				9F39ECAB2767ACB0004065C6 /* User.swift */,
 				9F5AD4432768F6E100B1B3F3 /* Comment.swift */,
 				9F53B07C276B90AC007B9D2A /* Location.swift */,
+				9F305B1A278862ED00FE50E8 /* RequestParameters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,11 +328,11 @@
 				9F4D11E3276A5152002D78E9 /* ShadowView.swift in Sources */,
 				9FC7BF8A277DCA890051FFCE /* setPadding.swift in Sources */,
 				9F88A21D277379FB00028AD5 /* NewPostViewController.swift in Sources */,
+				9F305B1B278862ED00FE50E8 /* RequestParameters.swift in Sources */,
 				9FCFD7BF276794B300AAA74D /* AppDelegate.swift in Sources */,
 				9FBFCA702768E9CC005AD3A2 /* PostDetailsViewController.swift in Sources */,
 				9F5AD4442768F6E100B1B3F3 /* Comment.swift in Sources */,
 				9F53B07D276B90AC007B9D2A /* Location.swift in Sources */,
-				9F37413D2780C48100694FF3 /* setPaddingLabel.swift in Sources */,
 				9F39ECAC2767ACB0004065C6 /* User.swift in Sources */,
 				9F0826232770BE8300D29282 /* SignInViewController.swift in Sources */,
 				9FC8EB17276F80DB00083A20 /* RegisterViewController.swift in Sources */,

@@ -35,9 +35,6 @@ class UserProfileViewController: UIViewController {
             self.setupUI()
         }
         
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     

@@ -21,8 +21,7 @@ class PostAPI : API {
         
         let param = [
             
-            "page":"\(page)",
-        
+            "page":"\(page)"
         ]
 
         AF.request(url,parameters: param,encoder: URLEncodedFormParameterEncoder.default, headers: headers).responseJSON { respose in
@@ -39,19 +38,14 @@ class PostAPI : API {
         }
     }
     
-    static func addNewPosts(text:String, userId:String ,image:String, completionHander : @escaping () -> ()){
+    static func addNewPosts(text:String, userId:String ,image:String,tags:[String], completionHander : @escaping () -> ()){
         
 
         let url = "\(baseUrl)/post/create"
-        let param = [
         
+        let param2 = RequestParameters(text: text, owner: userId, image: image, tags: tags)
 
-            "owner": userId,
-            "text":text,
-            "image": image
-        ]
-        
-        AF.request(url,method: .post,parameters: param,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
+        AF.request(url,method: .post,parameters: param2,encoder: JSONParameterEncoder.default, headers: headers).validate().responseJSON { respose in
             switch respose.result {
             case .success:
                 completionHander()
@@ -191,7 +185,6 @@ class PostAPI : API {
         }
         
     }
-    
     
     
 }

@@ -18,6 +18,9 @@ class NewPostViewController: UIViewController {
     
     @IBOutlet weak var postUrlLabel: UITextField!
     
+    @IBOutlet weak var tagsTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +44,7 @@ class NewPostViewController: UIViewController {
         if let loggedUser = UserManager.loggedInUser{
             if isCreation {
                 self.loaderView.startAnimating()
-                PostAPI.addNewPosts(text: postText.text!, userId: loggedUser.id , image: postUrlLabel.text!) {
+                PostAPI.addNewPosts(text: postText.text!, userId: loggedUser.id , image: postUrlLabel.text!, tags: tagsTextField.text!.components(separatedBy: " ")) {
                     self.loaderView.stopAnimating()
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addNewPost"), object: nil, userInfo: nil)
                     self.dismiss(animated: true, completion: nil)

@@ -17,7 +17,7 @@ class SignInViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     @IBAction func signInButtonClicked(_ sender: Any) {
@@ -32,12 +32,12 @@ class SignInViewController: UIViewController {
                 self.lastNameTextField.text = ""
             }else{
                 if loggedInUser != nil {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
+                    UserDefaults.standard.setValue(self.firstNameTextField.text!, forKey: "firstName")
                     UserManager.loggedInUser = loggedInUser
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
                     self.present(vc!,animated: true)
                 }
             }
-            
         }
     }
     

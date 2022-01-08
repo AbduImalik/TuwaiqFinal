@@ -10,7 +10,7 @@ import Alamofire
 class API {
     
     static let baseUrl = "https://dummyapi.io/data/v1"
-    static let appId = "61d6c40f4dd595b5eabcb763"
+    static let appId = "61d9a37e42620f234f4a5fbb"
     static let headers: HTTPHeaders = [
         "app-id": appId
     ]
