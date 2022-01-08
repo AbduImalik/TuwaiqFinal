@@ -47,7 +47,7 @@ Social networking web app using dummyapi for socializing your goals and strategi
 
 
 
-| ------ | ------ | ------ | ------| 
+| ------ | ------ | 
 
  
 
