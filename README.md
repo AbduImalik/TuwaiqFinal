@@ -47,6 +47,6 @@ Social networking web app using dummyapi for socializing your goals and strategi
 
 | SignIn | ![2](https://user-images.githubusercontent.com/89999862/148648572-deaffc0e-818e-4c50-840e-b05206746c97.png) |
 |------|-------|
-|||
+| register | ![1](https://user-images.githubusercontent.com/89999862/148648611-08c460e5-9419-4938-86f2-f1c7fc787551.png) |
 |||
 
