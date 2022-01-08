@@ -56,6 +56,8 @@ Social networking web app using dummyapi for socializing your goals and strategi
 | EditProfile | <img src="https://user-images.githubusercontent.com/89999862/148648874-38b71c14-0063-4d6a-9256-c3c9807d972c.png" width="200" height="400" /> |
 | Posts | <img src="https://user-images.githubusercontent.com/89999862/148648987-773c91e8-641c-4935-9f17-401b457cd829.png" width="200" height="400" /> |
 | Select post tag | <img src="https://user-images.githubusercontent.com/89999862/148649227-a8e10790-44d7-410c-9b6e-2ae852e60427.png" width="200" height="400" /> 
-| Posts | <img src="https://user-images.githubusercontent.com/89999862/148648987-773c91e8-641c-4935-9f17-401b457cd829.png" width="200" height="400" /> |
+| Add post | <img src="https://user-images.githubusercontent.com/89999862/148649423-f2d20a92-1918-4005-926e-c3bf074ac72e.png" width="200" height="400" /> 
+| Delete and edit post | <img src="https://user-images.githubusercontent.com/89999862/148649969-fed165e5-b391-47a3-ab02-0890567c5c29.png" width="200" height="400" /> 
+| Add post | <img src="https://user-images.githubusercontent.com/89999862/148649423-f2d20a92-1918-4005-926e-c3bf074ac72e.png" width="200" height="400" /> 
 
 
